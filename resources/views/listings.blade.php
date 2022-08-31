@@ -5,7 +5,14 @@
 
 <!-- For each Directive -->
 @foreach ($listings as $listing)
-<h1>{{ $listing['title'] }}</h1>
+
+
+<a href="/listing/{{ $listing['id'] }}">
+    <h1>
+        {{ $listing['title'] }}
+    </h1>
+</a>
+
 <p>{{ $listing['desc'] }}</p>
 @endforeach
 

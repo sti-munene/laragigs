@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Listing;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,29 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('listings', [
         'heading' => 'Latest Listings',
-        'listings' => [
-            [
-                'id' => '1',
-                'title' => 'Listing One',
-                'desc' => 'Donec et molestie nisi. Nunc posuere venenatis eleifend.
-             Aenean finibus ante quis euismod dignissim. Sed leo leo, dignissim 
-             vel porttitor eget, gravida at massa. Cras ut porttitor ligula. 
-             Sed mollis, ante sed scelerisque porttitor, tellus turpis laoreet 
-             erat, viverra egestas sapien dui ullamcorper lectus.'
-            ],
-            [
-                'id' => '2',
-                'title' => 'Listing Two',
-                'desc' => 'Donec et molestie nisi. Nunc posuere venenatis eleifend.
-             Aenean finibus ante quis euismod dignissim. Sed leo leo, dignissim 
-             vel porttitor eget, gravida at massa. Cras ut porttitor ligula. 
-             Sed mollis, ante sed scelerisque porttitor, tellus turpis laoreet 
-             erat, viverra egestas sapien dui ullamcorper lectus.'
-            ]
-        ]
-
+        'listings' => Listing::all()
     ]);
 });
+
+
+// Single listing
+Route::get('/listing/{id}', function ($id) {
+
+    return view('listing', [
+        'heading' => 'Listing',
+        'listing' => Listing::find($id)
+    ]);
+});
+
 
 
 /*
