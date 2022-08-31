@@ -2,5 +2,5 @@
 
 @if ($listing)
 <h1>{{ $listing['title'] }}</h1>
-<p>{{ $listing['desc'] }}</p>
+<p>{{ $listing['description'] }}</p>
 @endif

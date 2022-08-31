@@ -31,9 +31,6 @@ Route::get('/listing/{id}', function ($id) {
         'listing' => Listing::find($id)
     ]);
 });
-
-
-
 /*
 
 // Example route

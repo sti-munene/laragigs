@@ -13,7 +13,7 @@
     </h1>
 </a>
 
-<p>{{ $listing['desc'] }}</p>
+<p>{{ $listing['description'] }}</p>
 @endforeach
 
 @else
