@@ -3,8 +3,6 @@
     @include('partials._search')
 
     <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
-
-
         <!-- Unless Directive -->
         @unless (count($listings) === 0)
 
@@ -20,8 +18,11 @@
         @else
         <p>No listings found!</p>
         @endunless
+    </div>
 
-
+    <!-- Pagination -->
+    <div class="p-4 my-4">
+        {{ $listings->links() }}
     </div>
 
     <!-- If Directive -->
