@@ -31,10 +31,49 @@ class ListingController extends Controller
         ]);
     }
 
+    // delete a listing
+    public function destroy(Listing $listing)
+    {
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing deleted.');
+    }
+
+
+
     // show listing create form
     public function create()
     {
         return view('listings.create');
+    }
+
+    // show listing edit form
+    public function edit(Listing $listing)
+    {
+        return view('listings.edit', [
+            'listing' => $listing
+        ]);
+    }
+
+    // update and existing listing 
+    public function update(Listing $listing, Request $request)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => 'required',
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['email', 'required'],
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        // dd($request->all());
+        $listing->update($formFields);
+        return back()->with('message', 'Listing updated successfully!');
     }
 
 
