@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
+            $table->string('logo')->nullable(); // this can be null
             $table->string('tags');
             $table->string('company');
             $table->string('location');
