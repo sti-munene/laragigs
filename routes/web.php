@@ -3,6 +3,7 @@
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -27,6 +28,21 @@ use App\Http\Controllers\ListingController;
 
 
 Route::get('/', [ListingController::class, 'index']);
+
+// show register create form
+Route::get('/register', [UserController::class, 'create']);
+
+// save a new user
+Route::post('/users', [UserController::class, 'store']);
+
+// logout user
+Route::post('/logout', [UserController::class, 'logout']);
+
+// show login form
+Route::get('/login', [UserController::class, 'login']);
+
+// show login form
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // show create lisiting form
 Route::get('/listings/create', [ListingController::class, 'create']);
