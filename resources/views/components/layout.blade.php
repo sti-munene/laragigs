@@ -37,15 +37,8 @@
                 <span>Welcome {{auth()->user()->name }}</span>
             </li>
 
-
-            <li>
-                <a href="/listings/manage" class="hover:text-laravel">
-                    Manage Listings</a>
-            </li>
-
             <li>
                 <form class="inline" method='POST' action="/logout">
-
                     @csrf
                     <button type="submit">Logout</button>
                 </form>

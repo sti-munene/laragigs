@@ -7,38 +7,47 @@
 
 ## Basic Commands
 
-1. Start dev server
+1.  Start dev server
 
     ```bash
     php artisan serve
     ```
 
-2. Migrate the database
+2.  Migrate the database
 
     ```bash
     php artisan migrate
     ```
 
-3. Migrate the database
+3.  Migrate the database
 
     ```bash
     php artisan migrate
     ```
 
-4. Reset the db back to basics
+4.  Reset the db back to basics
 
     ```bash
     php artisan migrate:refresh
     ```
 
-5. Seed data to the db
+5.  Seed data to the db
 
     ```bash
     php artisan db:seed
     ```
 
-6. Reset the db back to basics and seed data at the same time
+6.  Reset the db back to basics and seed data at the same time
 
     ```bash
     php artisan migrate:refresh --seed
     ```
+
+7.  Generate your application encryption key
+
+    ````bash
+
+    php artisan key:generate
+
+        ```
+    ````
